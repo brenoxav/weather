@@ -5,9 +5,13 @@ const searchInput = document.querySelector('.search-input');
 const searchCityBtn = document.querySelector('.search-city-btn');
 const searchHereBtn = document.querySelector('.search-here-btn');
 
+const unitSwitch = document.querySelector('.unit-switch');
+const unitCheckbox = document.querySelector('.unit-checkbox');
+
 const locationName = document.querySelector('.location-name');
 const weatherDescription = document.querySelector('.weather-description');
-const temperature = document.querySelector('.temperature');
+const temperatureValue = document.querySelector('.temperature-value');
+const temperatureUnit = document.querySelectorAll('.temperature-unit');
 const minTemperature = document.querySelector('.min-temperature');
 const maxTemperature = document.querySelector('.max-temperature');
 
@@ -46,6 +50,7 @@ searchCityBtn.addEventListener('click', () => {
 });
 
 function getCurrentLocation() {
+  loader.classList.add('display');
   const options = {
     timeout: 5000
   }
@@ -60,6 +65,7 @@ searchHereBtn.addEventListener('click', () => {
     .then(geo => getWeather({lat: geo.coords.latitude, lon: geo.coords.longitude}))
     .catch(err => {
       console.error(`ERROR GETTING COORDINATES: ${err.code}: ${err.message}`)
+      loader.classList.remove('display');
       locationName.textContent = "Location service is not available for this browser. Try searching by the city name."
     });
 });
@@ -67,7 +73,22 @@ searchHereBtn.addEventListener('click', () => {
 function renderWeather(data) {
   locationName.textContent = `${data.name}, ${data.sys.country}`;
   weatherDescription.textContent = data.weather[0].description;
-  temperature.textContent = `${Math.round(data.main.temp)}°C`;
-  minTemperature.textContent = `min ${Math.round(data.main.temp_min)}°C`;
-  maxTemperature.textContent = `max ${Math.round(data.main.temp_max)}°C`;
+  temperatureValue.textContent = `${Math.round(convertToUnit(data.main.temp))}`;
+  minTemperature.textContent = `min ${Math.round(convertToUnit(data.main.temp_min))}`;
+  maxTemperature.textContent = `max ${Math.round(convertToUnit(data.main.temp_max))}`;
 }
+
+function convertToUnit(tempC) {
+  if(unitCheckbox.checked) {
+    temperatureUnit.forEach(unit => unit.textContent = "°C");
+    return tempC
+  }
+  else {
+    temperatureUnit.forEach(unit => unit.textContent = "°F");
+    return ((tempC * 9/5) + 32);
+  }
+}
+
+unitSwitch.addEventListener('click', () => {
+  getWeather(locationName.textContent);
+})

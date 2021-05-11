@@ -73,7 +73,7 @@ table {
 }
 
 .weather-card {
-  /* position: relative; */
+  position: relative;
   width: 304px;
   margin: 0 auto;
 
@@ -110,22 +110,38 @@ table {
 }
 
 /* UNIT SWITCH */
+.switch-wrapper {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60px;
+}
+.unit-c, .unit-f {
+  /* font-weight: bold; */
+  color: #ccc;
+}
+.active-unit {
+  color: #0af;
+}
  /* The switch - the box around the slider */
  .unit-switch {
   position: relative;
   display: inline-block;
-  width: 3rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 1rem;
 }
 
 /* Hide default HTML checkbox */
-.unit-switch input {
+.unit-checkbox {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
+/* Slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -133,31 +149,24 @@ table {
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 1rem;
-  background-color: #0fc;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   transition: .2s;
 }
 
+/* Slider selected */
 .slider:before {
   position: absolute;
   content: "";
-  height: 1rem;
-  width: 1rem;
-  left: .25rem;
-  bottom: .25rem;
+  height: 8px;
+  width: 8px;
+  left: 4px;
+  bottom: 3px;
   border-radius: 50%;
-  background-color: white;
+  background-color: #ccc;
   transition: .2s;
 }
 
-/* input:checked + .slider {
-  background-color: #2196F3;
-} */
-
-/* input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-} */
-
-input:checked + .slider:before {
-  transform: translateX(1.5rem);
+.unit-checkbox:checked + .slider:before {
+  transform: translateX(14px);
 }
