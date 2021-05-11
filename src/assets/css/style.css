@@ -51,3 +51,39 @@ table {
 }
 /* CSS RESET END */
 
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 304px;
+  height: 2rem;
+  margin: 2rem auto;
+  background-color: #eee;
+}
+
+.search-here-btn,
+.search-city-btn {
+  display: inline-block;
+  width: 48px;
+  /* height: 100%; */
+  background-color: #ccc;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.weather-card {
+  width: 304px;
+  margin: 0 auto;
+
+  background-color: #eee;
+}
+
+.location-name {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.temperature {
+  font-size: 4rem;
+}
