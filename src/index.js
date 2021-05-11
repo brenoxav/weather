@@ -1,5 +1,6 @@
 import "./assets/css/style.css";
 
+const loader = document.querySelector('.loader');
 const searchInput = document.querySelector('.search-input');
 const searchCityBtn = document.querySelector('.search-city-btn');
 const searchHereBtn = document.querySelector('.search-here-btn');
@@ -13,6 +14,7 @@ const maxTemperature = document.querySelector('.max-temperature');
 const API_KEY = 'e24777d55aaff3d179ae147424695333';
 
 function getWeather(input) {
+  loader.classList.add('display');
   let url = '';
   if(typeof input === 'string'){
     url = `http://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${API_KEY}`;
@@ -23,6 +25,7 @@ function getWeather(input) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
+      loader.classList.remove('display');
       console.log(data);
       renderWeather(data);
     })
