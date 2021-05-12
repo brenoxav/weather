@@ -7,6 +7,8 @@ const searchHereBtn = document.querySelector('.search-here-btn');
 
 const unitSwitch = document.querySelector('.unit-switch');
 const unitCheckbox = document.querySelector('.unit-checkbox');
+const unitC = document.querySelector('.unit-c');
+const unitF = document.querySelector('.unit-f');
 
 const locationName = document.querySelector('.location-name');
 const weatherDescription = document.querySelector('.weather-description');
@@ -79,6 +81,7 @@ function renderWeather(data) {
 }
 
 function convertToUnit(tempC) {
+
   if(unitCheckbox.checked) {
     temperatureUnit.forEach(unit => unit.textContent = "°C");
     return tempC
@@ -90,5 +93,13 @@ function convertToUnit(tempC) {
 }
 
 unitSwitch.addEventListener('click', () => {
+  if(unitCheckbox.checked) {
+    unitC.classList.add('active-unit');
+    unitF.classList.remove('active-unit');
+  }
+  else {
+    unitC.classList.remove('active-unit');
+    unitF.classList.add('active-unit');
+  }
   getWeather(locationName.textContent);
 })
