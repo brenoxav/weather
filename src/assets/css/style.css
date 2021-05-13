@@ -51,47 +51,122 @@ table {
 }
 /* CSS RESET END */
 
+/* SEARCH BAR */
 .search-wrapper {
   display: flex;
   align-items: center;
-  max-width: 304px;
-  height: 2rem;
+  max-width: 360px;
+  /* height: 2rem; */
   margin: 2rem auto;
+  border-radius: 2rem;
   background-color: #eee;
 }
 
 .search-here-btn,
 .search-city-btn {
   display: inline-block;
-  width: 48px;
-  /* height: 100%; */
-  background-color: #ccc;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 1rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.search-here-btn {
+  background-image: url('../images/icon-pin.svg');
+}
+
+.search-city-btn {
+  background-image: url('../images/icon-search.svg');
 }
 
 .search-input {
   width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 1rem;
 }
 
+.search-input:focus {
+  outline: none;
+}
+
+/* WEATHER CARD */
 .weather-card {
   position: relative;
-  width: 304px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  height: 480px;
   margin: 0 auto;
-
+  padding: 1rem;
+  border-radius: 1rem;
   background-color: #eee;
 }
 
 .location-name {
+  margin-top: 2rem;
   font-size: 2rem;
-  text-align: center;
+}
+
+.weather-icon {
+  width: 6rem;
+  height: 6rem;
+  margin-top: 2rem;
+  background-image: url('../images/01d.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
 }
 
 .temperature {
-  font-size: 4rem;
+  margin-top: 2rem;
+  font-size: 3rem;
+}
+
+.weather-description {
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.min-max-wrapper {
+  margin-top: 2rem;
+}
+
+.min-icon,
+.max-icon {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 1rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.min-icon {
+  background-image: url('../images/icon-arrow-down.svg');
+}
+
+.max-icon {
+  background-image: url('../images/icon-arrow-up.svg');
+}
+
+.min-temperature,
+.max-temperature {
+  font-size: 2rem;
 }
 
 /* LOADER */
 .loader {
   display: none;
+  justify-self: center;
+  align-self: center;
   border: 16px solid #fff;
   border-top: 16px solid #0af;
   border-radius: 50%;

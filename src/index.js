@@ -76,8 +76,8 @@ function renderWeather(data) {
   locationName.textContent = `${data.name}, ${data.sys.country}`;
   weatherDescription.textContent = data.weather[0].description;
   temperatureValue.textContent = `${Math.round(convertToUnit(data.main.temp))}`;
-  minTemperature.textContent = `min ${Math.round(convertToUnit(data.main.temp_min))}`;
-  maxTemperature.textContent = `max ${Math.round(convertToUnit(data.main.temp_max))}`;
+  minTemperature.textContent = `${Math.round(convertToUnit(data.main.temp_min))}`;
+  maxTemperature.textContent = `${Math.round(convertToUnit(data.main.temp_max))}`;
 }
 
 function convertToUnit(tempC) {

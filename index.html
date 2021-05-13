@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,13 @@
   <title>Weather Now</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main class="main">
     <div class="search-wrapper">
-      <a href="#" class="search-here-btn">here</a>
+      <i class="search-here-btn"></i>
       <input type="text" class="search-input">
-      <a href="#" class="search-city-btn">search</a>
+      <i class="search-city-btn"></i>
     </div>
 
     <div class="weather-card">
@@ -27,16 +29,19 @@
       </div>
 
       <div class="loader"></div>
-      <h1 class="location-name">...loading</h1>
-      <h2 class="weather-description"></h2>
-      <div class="temperature"><span class="temperature-value"></span><span class="temperature-unit">C</span></div>
+
+      <h1 class="location-name">City Name</h1>
+      <i class="weather-icon"></i>
+      <div class="temperature"><span class="temperature-value"></span><span class="temperature-unit">°C</span></div>
+      <h2 class="weather-description">weather description</h2>
       <div class="min-max-wrapper">
-        <span class="min-temperature">22</span><span class="temperature-unit"></span>
-        <span class="max-temperature">32</span><span class="temperature-unit"></span>
+        <i class="min-icon"></i><span class="min-temperature">21</span><span class="temperature-unit">°C</span>
+        <i class="max-icon"></i><span class="max-temperature">32</span><span class="temperature-unit">°C</span>
       </div>
-      
+
     </div>
   </main>
   <script src="/dist/main.js"></script>
 </body>
+
 </html>
