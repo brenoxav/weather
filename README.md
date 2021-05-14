@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Weather Now
 
 > What's the weather like?
 
@@ -16,7 +16,7 @@ A simple weather app that allows you to get the weather forecast of a given loca
 
 ## Live Demo
 
-[Click here to see a live version of this project](https://brenoxav.github.io/weather)
+[Click here to see a live demo of this project](https://brenoxav.github.io/weather)
 
 
 ## Getting Started
@@ -29,19 +29,33 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+- A web browser
+
 ### Setup
 
-### Install
+- Clone or download the project to your local machine
 
-### Usage
+- Change to the project's root directory
+```
+weather
+```
 
-### Run tests
+- Open the `index.html` file on your preferred browser
+```
+/dist/index.html
+```
 
-### Deployment
+### Scripts
+- Run in development mode and watch for changes
+```
+npm run dev
+```
+- Compile in production mode
+```
+npm run build
+```
 
-
-
-## Authors
+## Author
 
 👨‍💻 **Breno Xavier**
 
