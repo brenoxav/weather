@@ -1,3 +1,10 @@
+/* CUSTOM PROPERTIES */
+:root {
+  --color-1: #fff8;
+  --color-2: #fff4;
+  --color-bg: #ccd;
+}
+
 /* CSS RESET BEGIN */
 * {
   box-sizing: border-box;
@@ -119,6 +126,7 @@ body {
     “Helvetica Neue”,
     sans-serif;
   line-height: 1;
+  background-color: var(--color-bg);
 }
 
 ol,
@@ -144,8 +152,6 @@ table {
   border-spacing: 0;
 }
 
-/* CSS RESET END */
-
 /* SEARCH BAR */
 .search-wrapper {
   display: flex;
@@ -153,7 +159,7 @@ table {
   max-width: 360px;
   margin: 2rem auto;
   border-radius: 2rem;
-  border: 2px solid #444;
+  background-color: var(--color-2);
 }
 
 .search-here-btn,
@@ -199,32 +205,39 @@ table {
   margin: 0 auto;
   padding: 1rem;
   border-radius: 1rem;
-  border: 2px solid #444;
   background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .location-name {
   margin-top: 2rem;
   font-size: 2rem;
+  color: var(--color-1);
 }
 
 .weather-icon {
-  width: 6rem;
-  height: 6rem;
+  width: 7rem;
+  height: 7rem;
   margin-top: 2rem;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  border-radius: 50%;
+  border: 1rem solid #fff0;
+  background-color: var(--color-1);
 }
 
 .temperature {
   margin-top: 2rem;
   font-size: 3rem;
+  color: var(--color-1);
 }
 
 .weather-description {
   margin-top: 1rem;
   text-transform: uppercase;
+  color: var(--color-1);
 }
 
 .min-max-wrapper {
@@ -234,12 +247,15 @@ table {
 .min-icon,
 .max-icon {
   display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
   margin: 0 1rem;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  border-radius: 50%;
+  border: 0.5rem solid #fff0;
+  background-color: var(--color-1);
 }
 
 .min-icon {
@@ -253,6 +269,11 @@ table {
 .min-temperature,
 .max-temperature {
   font-size: 2rem;
+  color: var(--color-1);
+}
+
+.temperature-unit {
+  color: var(--color-1);
 }
 
 /* LOADER */
@@ -261,20 +282,21 @@ table {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 92%;
+  z-index: 10;
+  height: 100%;
   width: 100%;
   padding: 2rem;
   border-radius: 1rem;
-  background-color: #fff;
+  background-color: #aac;
 }
 
 .loader {
   display: none;
   justify-self: center;
   align-self: center;
-  border: 16px solid #eee;
-  border-top: 16px solid #000;
-  border-bottom: 16px solid #000;
+  border: 16px solid var(--color-1);
+  border-top: 16px solid var(--color-2);
+  border-bottom: 16px solid var(--color-2);
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -308,11 +330,11 @@ table {
 
 .unit-c,
 .unit-f {
-  color: #ccc;
+  color: var(--color-2);
 }
 
 .active-unit {
-  color: #000;
+  color: var(--color-1);
 }
 
 .unit-switch {
@@ -336,7 +358,7 @@ table {
   right: 0;
   bottom: 0;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-1);
   transition: 0.2s;
 }
 
@@ -348,7 +370,7 @@ table {
   left: 4px;
   bottom: 3px;
   border-radius: 50%;
-  background-color: #ccc;
+  background-color: var(--color-1);
   transition: 0.2s;
 }
 

@@ -8,6 +8,7 @@ const searchInput = document.querySelector('.search-input');
 const searchCityBtn = document.querySelector('.search-city-btn');
 const searchHereBtn = document.querySelector('.search-here-btn');
 
+const weatherCard = document.querySelector('.weather-card');
 const unitSwitch = document.querySelector('.unit-switch');
 const unitCheckbox = document.querySelector('.unit-checkbox');
 const unitC = document.querySelector('.unit-c');
@@ -21,6 +22,7 @@ const temperatureUnit = document.querySelectorAll('.temperature-unit');
 const minTemperature = document.querySelector('.min-temperature');
 const maxTemperature = document.querySelector('.max-temperature');
 
+const GIF_URL = 'https://raw.githubusercontent.com/brenoxav/project-assets/gh-pages/weather-gifs/';
 const ICON_URL = 'https://raw.githubusercontent.com/brenoxav/project-assets/gh-pages/weather-icons/';
 const API_KEY = 'e24777d55aaff3d179ae147424695333';
 
@@ -35,6 +37,7 @@ function convertToUnit(tempC) {
 
 function renderWeather(data) {
   locationName.textContent = `${data.name}, ${data.sys.country}`;
+  weatherCard.style.backgroundImage = `url('${GIF_URL}${data.weather[0].icon}.gif')`;
   weatherIcon.style.backgroundImage = `url('${ICON_URL}${data.weather[0].icon}.svg')`;
   weatherDescription.textContent = data.weather[0].description;
   temperatureValue.textContent = `${Math.round(convertToUnit(data.main.temp))}`;
