@@ -3,17 +3,14 @@ import './assets/css/style.css';
 const loader = document.querySelector('.loader');
 const backdrop = document.querySelector('.backdrop');
 const warningMessage = document.querySelector('.warning-message');
-
 const searchInput = document.querySelector('.search-input');
 const searchCityBtn = document.querySelector('.search-city-btn');
 const searchHereBtn = document.querySelector('.search-here-btn');
-
 const weatherCard = document.querySelector('.weather-card');
 const unitSwitch = document.querySelector('.unit-switch');
 const unitCheckbox = document.querySelector('.unit-checkbox');
 const unitC = document.querySelector('.unit-c');
 const unitF = document.querySelector('.unit-f');
-
 const locationName = document.querySelector('.location-name');
 const weatherIcon = document.querySelector('.weather-icon');
 const weatherDescription = document.querySelector('.weather-description');
@@ -26,16 +23,16 @@ const GIF_URL = 'https://raw.githubusercontent.com/brenoxav/project-assets/gh-pa
 const ICON_URL = 'https://raw.githubusercontent.com/brenoxav/project-assets/gh-pages/weather-icons/';
 const API_KEY = 'e24777d55aaff3d179ae147424695333';
 
-function convertToUnit(tempC) {
+const convertToUnit = (tempC) => {
   if (unitCheckbox.checked) {
     temperatureUnit.forEach((unit) => { unit.textContent = '°C'; });
     return tempC;
   }
   temperatureUnit.forEach((unit) => { unit.textContent = '°F'; });
   return (((tempC * 9) / 5) + 32);
-}
+};
 
-function renderWeather(data) {
+const renderWeather = (data) => {
   locationName.textContent = `${data.name}, ${data.sys.country}`;
   weatherCard.style.backgroundImage = `url('${GIF_URL}${data.weather[0].icon}.gif')`;
   weatherIcon.style.backgroundImage = `url('${ICON_URL}${data.weather[0].icon}.svg')`;
@@ -43,9 +40,9 @@ function renderWeather(data) {
   temperatureValue.textContent = `${Math.round(convertToUnit(data.main.temp))}`;
   minTemperature.textContent = `${Math.round(convertToUnit(data.main.temp_min))}`;
   maxTemperature.textContent = `${Math.round(convertToUnit(data.main.temp_max))}`;
-}
+};
 
-function getWeather(input) {
+const getWeather = (input) => {
   warningMessage.innerHTML = '';
   backdrop.classList.add('display');
   loader.classList.add('display');
@@ -70,7 +67,7 @@ function getWeather(input) {
       <p class="warning-message">Click the pin icon above to use you current location OR type a city name in the search field.</p>
       `;
     });
-}
+};
 
 searchInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
@@ -82,7 +79,7 @@ searchCityBtn.addEventListener('click', () => {
   getWeather(searchInput.value);
 });
 
-function getCurrentLocation() {
+const getCurrentLocation = () => {
   backdrop.classList.add('display');
   loader.classList.add('display');
   const options = {
@@ -91,7 +88,7 @@ function getCurrentLocation() {
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(resolve, reject, options);
   });
-}
+};
 
 searchHereBtn.addEventListener('click', () => {
   getCurrentLocation()
