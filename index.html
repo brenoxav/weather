@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Now</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="main">
+    <div class="search-wrapper">
+      <i class="search-here-btn"></i>
+      <input type="text" class="search-input">
+      <i class="search-city-btn"></i>
+    </div>
+    <div class="weather-card">
+      <div class="switch-wrapper">
+        <span class="unit-f">F</span>
+        <label class="unit-switch">
+          <input class="unit-checkbox" type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+        <span class="unit-c active-unit">C</span>
+      </div>
+      <div class="backdrop display">
+        <p class="warning-message">Click the pin icon above to use you current location OR type a city name in the
+          search field</p>
+        <div class="loader"></div>
+      </div>
+      <h1 class="location-name">City Name</h1>
+      <i class="weather-icon"></i>
+      <div class="temperature"><span class="temperature-value"></span><span class="temperature-unit"></span></div>
+      <h2 class="weather-description">Description</h2>
+      <div class="min-max-wrapper">
+        <i class="min-icon"></i><span class="min-temperature"></span><span class="temperature-unit"></span>
+        <i class="max-icon"></i><span class="max-temperature"></span><span class="temperature-unit"></span>
+      </div>
+    </div>
+  </main>
+  <script src="/dist/main.js"></script>
+</body>
+
+</html>
