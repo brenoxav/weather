@@ -48,9 +48,9 @@ const getWeather = (input) => {
   loader.classList.add('display');
   let url = '';
   if (typeof input === 'string') {
-    url = `http://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${API_KEY}`;
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${API_KEY}`;
   } else if (typeof input === 'object') {
-    url = `http://api.openweathermap.org/data/2.5/weather?lat=${input.lat}&lon=${input.lon}&units=metric&appid=${API_KEY}`;
+    url = `https://api.openweathermap.org/data/2.5/weather?lat=${input.lat}&lon=${input.lon}&units=metric&appid=${API_KEY}`;
   }
   fetch(url)
     .then((response) => response.json())
